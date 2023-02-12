@@ -85,6 +85,13 @@ module "route53" {
   environment = var.environment
 }
 
+module "cognito" {
+  source      = "../../modules/cognito"
+  environment = var.environment
+  app         = var.app
+  domain      = var.frontend_domain
+}
+
 module "ui" {
   source        = "../../modules/ui"
   environment   = var.environment
